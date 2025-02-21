@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добро пожаловать!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f0f2f5;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Привет от нашего сервиса! 🚀</h1>
+    <p id="server-time"></p>
+
+    <script>
+        fetch('/api/time')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('server-time').textContent = 
+                    `Время на сервере: ${new Date(data.time).toLocaleString()}`;
+            });
+    </script>
+</body>
+</html>
